@@ -39,6 +39,7 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
     fun onCreateNewNoteClick() {
         // TODO - Open SaveNoteScreen
+        _noteEntry.value = NoteModel()
         NotesRouter.navigateTo(Screen.SaveNote)
     }
 
