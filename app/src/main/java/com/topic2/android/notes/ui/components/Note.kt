@@ -21,10 +21,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.topic2.android.notes.R
+import com.topic2.android.notes.domain.model.NoteModel
 import com.topic2.android.notes.theme.rwGreen
+import com.topic2.android.notes.ui.fromHex
 
 @Composable
-fun Note() {
+fun Note(
+    note: NoteModel,
+    onNoteClick: (NoteModel) -> Unit = {},
+    onNoteCheckedChange: (NoteModel) -> Unit = {},
+) {
     val backgroundShape: Shape = RoundedCornerShape(4.dp)
     Row(
             modifier = Modifier
@@ -39,7 +45,7 @@ fun Note() {
             modifier = Modifier
                 .align(Alignment.CenterVertically)
                 .padding(start = 16.dp, end = 16.dp),
-            color = rwGreen ,
+            color = Color.fromHex(note.color.hex),
             size = 40.dp,
             border = 1.dp
         )
@@ -49,21 +55,23 @@ fun Note() {
                 .align(Alignment.CenterVertically)
         ) {
             Text(
-                text = stringResource(id = R.string.header),
+                text = note.title,
                 maxLines = 1
             )
             Text(
-                text = stringResource(id = R.string.content),
+                text = note.content,
                 maxLines = 1
             )
         }
-        Checkbox(
-            checked = false,
-            onCheckedChange = {},
-            modifier = Modifier
-                .padding(8.dp)
-                .align(Alignment.CenterVertically)
-        )
+        if (note.isCheckedOff != null) {
+            Checkbox(
+                checked = note.isCheckedOff,
+                onCheckedChange = {},
+                modifier = Modifier
+                    .padding(8.dp)
+                    .align(Alignment.CenterVertically)
+            )
+        }
     }
 }
 
