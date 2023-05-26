@@ -2,6 +2,7 @@ package com.topic2.android.notes.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -24,14 +25,16 @@ fun Note() {
                 .size(40.dp)
                 .background(rwGreen)
         )
-        Text(
-            text = stringResource(id = R.string.header),
-            maxLines = 1
-        )
-        Text(
-            text = stringResource(id = R.string.content),
-            maxLines = 1
-        )
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = stringResource(id = R.string.header),
+                maxLines = 1
+            )
+            Text(
+                text = stringResource(id = R.string.content),
+                maxLines = 1
+            )
+        }
         Checkbox(
             checked = false,
             onCheckedChange = {},
