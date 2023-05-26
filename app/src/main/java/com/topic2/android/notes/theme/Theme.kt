@@ -20,7 +20,7 @@ private val DarkThemeColors = darkColors(
   primary = Color(0xFF00A055),
   primaryVariant = Color(0xFF00F884),
   secondary = rwGreen,
-  onPrimary = Color.White
+  onPrimary = Color.LightGray
 )
 
 /**

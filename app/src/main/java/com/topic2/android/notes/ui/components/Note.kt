@@ -45,15 +45,13 @@ fun Note(
             text = {
                 Text(
                     text = note.title,
-                    maxLines = 1,
-                    color = Color.Black,
+                    maxLines = 1
                 )
             },
             secondaryText = {
                 Text(
                     text = note.content,
-                    maxLines = 1,
-                    color = Color.Black
+                    maxLines = 1
                 )
             },
             icon = {
