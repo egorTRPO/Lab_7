@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-  compileSdkVersion 33
-  buildToolsVersion "30.0.3"
+  compileSdkVersion 31
+  buildToolsVersion "30.0.2"
 
   defaultConfig {
-    applicationId "com.topic2.android.notes"
+    applicationId "com.raywenderlich.android.jetnotes"
 
     minSdkVersion 21
-    targetSdkVersion 33
+    targetSdkVersion 31
 
     versionCode 1
     versionName "1.0"
@@ -91,7 +91,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
     // Enable experimental coroutines APIs, including Flow
     freeCompilerArgs += '-Xopt-in=kotlin.Experimental'
-    freeCompilerArgs += '-Xallow-jvm-ir-dependencies'
+    freeCompilerArgs += '-Xopt-in=-Xallow-jvm-ir-dependencies'
 
     // Set JVM target to 1.8
     jvmTarget = "1.8"
