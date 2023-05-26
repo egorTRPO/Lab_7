@@ -3,4 +3,5 @@
     <string name="header">Заголовок</string>
     <string name="content">Содержимое</string>
     <string name="notes">Заметки</string>
+    <string name="on_dark_theme">Включить тёмную тему</string>
 </resources>
