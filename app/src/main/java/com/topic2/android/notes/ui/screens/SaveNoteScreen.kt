@@ -13,6 +13,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Switch
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
@@ -115,6 +117,26 @@ private fun SaveNoteTopAppBar(
                 }
             }
         }
+    )
+}
+
+@Composable
+private fun ContentTextField(
+    modifier: Modifier = Modifier,
+    label: String,
+    text: String,
+    onTextChange: (String) -> Unit
+) {
+    TextField(
+        value = text,
+        onValueChange = onTextChange,
+        label = { Text(label)},
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp),
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = MaterialTheme.colors.surface
+        )
     )
 }
 
@@ -264,4 +286,14 @@ fun PickedColorPreview(){
 @Composable
 fun NoteCheckOptionPreview(){
     NoteCheckOption(false){}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ContentTextFieldPreview(){
+    ContentTextField(
+        label = stringResource(id = R.string.header),
+        text = "",
+        onTextChange = {}
+    )
 }
